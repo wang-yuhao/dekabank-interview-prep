@@ -58,11 +58,17 @@ This creates ~10,000+ rows of realistic bank data with intentional DQ errors inj
 ### Step 4 — Load the schema and seed data
 
 ```bash
+
+# Linux
 # Create schema (7 tables + 2 views)
 docker exec -i deka-db psql -U postgres < sql/01_schema.sql
 
 # Insert reference data (Sparkassen + Funds)
 docker exec -i deka-db psql -U postgres < sql/02_seed_data.sql
+
+# Or Windows PowerShell
+Get-Content sql\01_schema.sql | docker exec -i deka-db psql -U postgres
+Get-Content sql\02_seed_data.sql | docker exec -i deka-db psql -U postgres
 
 # Copy CSVs into Docker container
 docker cp data/ deka-db:/data/
