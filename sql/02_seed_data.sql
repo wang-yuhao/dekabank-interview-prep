@@ -3,6 +3,7 @@
 -- Run AFTER 01_schema.sql
 -- =============================================================
 SET search_path TO deka;
+SET client_encoding = 'UTF8'; -- IMPORTANT: prevents umlaut corruption (ü,ö,ä,ß)
 
 -- -------------------------------------------------------------
 -- SPARKASSEN (10 real-style German savings banks)
